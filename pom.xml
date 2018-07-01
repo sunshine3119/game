@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.hsbc</groupId>
+	<artifactId>game</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>  
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding> 
+        <!-- <jdk.version>1.8</jdk.version> -->
+		<junit-version>4.5</junit-version>
+	</properties>
+
+	<dependencies>
+		
+		<dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <version>${junit-version}</version>
+		    <scope>test</scope>
+		</dependency>
+		
+	</dependencies>
+	
+	<profiles>
+		<profile>
+			<id>local</id>
+			<properties>
+				<env>local</env>
+				<deploy.type>local</deploy.type>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault><!--default use this profile -->
+			</activation>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<env>dev</env>
+				<deploy.type>dev</deploy.type>
+			</properties>
+		</profile>
+		<profile>
+			<id>uat</id>
+			<properties>
+				<env>uat</env>
+				<deploy.type>uat</deploy.type>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<env>prod</env>
+				<deploy.type>prod</deploy.type>
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+		<finalName>game</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/properties/${env}</directory>
+				<filtering>true</filtering> <!-- use filter or not -->
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source />
+					<target />
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

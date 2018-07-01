@@ -1,0 +1,7 @@
+com\hsbc\game\factory\LessionFactory.class
+com\hsbc\game\base\LessionBase.class
+com\hsbc\game\MainEntry.class
+com\hsbc\game\impl\Lession1.class
+com\hsbc\game\proxy\LessionProxy.class
+com\hsbc\game\impl\Lession2.class
+com\hsbc\game\type\LessionType.class
